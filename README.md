@@ -30,3 +30,16 @@
 设置完.接下来我们开始搞一个简单的DEMO 测试HTTP
 
 
+
+
+# 一些有用的备注:
+## 请求https时,需要认证怎么办;
+看链接: https://www.cnblogs.com/majestyking/p/12293195.html
+修改: bin/jmeter.properties
+查找 `server.rmi.ssl.disable=false` 把它的#号去掉,然后改为: server.rmi.ssl.disable=true
+即忽略ssl认证.
+
+## 提取Json数组的数据怎么办.
+https://blog.csdn.net/qq_36502272/article/details/88529412
+
+
