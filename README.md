@@ -42,4 +42,48 @@
 ## 提取Json数组的数据怎么办.
 https://blog.csdn.net/qq_36502272/article/details/88529412
 
+## 文件下载时,怎么弄呢
+
+https://blog.csdn.net/qq_42947235/article/details/108882072
+
+大致可以这么做:首先请求文件下载API,
+接口返回成功,且ResponseHeaders 中有一个:
+
+`Content-Disposition: attachment; filename=*`
+
+这样的内容,那么我们可以使用正则提取器,把ResponseHeader里的文件名称提取出来.
+
+正则提取器: 
+```text
+要检查相应字段: 信息头/ResponseHeader
+引用名称: fileName
+正则表达式: Content-Disposition: attachment; filename=(.+?)\n
+模板: $1$
+匹配数字: 0
+```
+
+然后借助beanShell Processor 进行文件保存.
+```text
+传递给BeanShell 参数:
+参数: ${fileName}
+
+script:
+
+import java.io.*;
+byte[] result = prev.getResponseData(); 
+String name =new String(bsh.args[0].getBytes("ISO-8859-1"),"UTF-8");
+#备注,由于我测试的项目中,最终拼接的filename是用ISO-8859-1 进行编码的,所以我这里进行了转码为UTF-8
+#这样在保存的时候,文件名称不会乱码
+String file_name = "C:\\Users\\Administrator\\Downloads\\jmeter\\"+name; 
+File file = new File(file_name); 
+FileOutputStream out = new FileOutputStream(file);
+out.write(result);
+out.close();
+
+
+
+```
+
+
+
 
