@@ -39,6 +39,23 @@
 查找 `server.rmi.ssl.disable=false` 把它的#号去掉,然后改为: server.rmi.ssl.disable=true
 即忽略ssl认证.
 
+## 在if控制器中如果有多个个条件应该怎么写
+
+- 注意if控制器中，如果是字符串比较 提取的变量 要用 双引号括起来 `"${your param}" == "other param"`；如果是数字： `${code}=200`这样判断就可以了。
+
+- 假设现在api返回的是如下数据结构。
+
+```json
+{
+"code":200,
+"msg":"success",
+"data":"hello jmeter"
+}
+```
+
+- 判断code+msg，注意 下面的 msg的判断。是用双引号括起来的。 code则没有
+  - `${__jexl3("${msg}" == "webscan" && ${code} == 200)}`
+
 ## 提取Json数组的数据怎么办.
 https://blog.csdn.net/qq_36502272/article/details/88529412
 
@@ -79,8 +96,6 @@ File file = new File(file_name);
 FileOutputStream out = new FileOutputStream(file);
 out.write(result);
 out.close();
-
-
 
 ```
 
