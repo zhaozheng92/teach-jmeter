@@ -63,6 +63,15 @@
 ## 提取Json数组的数据怎么办.
 https://blog.csdn.net/qq_36502272/article/details/88529412
 
+## 在一个json返回数中，又要提取数组中的数据，又要提取单个数据时。要注意json提取器顺序。
+
+- 正确姿势✅
+- ![image](https://user-images.githubusercontent.com/33167955/124754793-30e1f780-df5d-11eb-9361-24a2e900233e.png)
+
+- 错误姿势❎ 这个不要学。
+- ![image](https://user-images.githubusercontent.com/33167955/124754873-47884e80-df5d-11eb-8227-b01358a06aab.png)
+
+
 ## 文件下载时,怎么弄呢
 
 https://blog.csdn.net/qq_42947235/article/details/108882072
