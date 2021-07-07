@@ -55,6 +55,10 @@
 
 - 判断code+msg，注意 下面的 msg的判断。是用双引号括起来的。 code则没有
   - `${__jexl3("${msg}" == "webscan" && ${code} == 200)}`
+  - 可参考下图
+  - ![image](https://user-images.githubusercontent.com/33167955/124744879-c8414d80-df51-11eb-9331-9f28b51d61c9.png)
+  - ![image](https://user-images.githubusercontent.com/33167955/124744969-dabb8700-df51-11eb-88da-0b4c46816d33.png)
+  - ![image](https://user-images.githubusercontent.com/33167955/124745037-f32ba180-df51-11eb-8cf0-f4fae2285479.png)
 
 ## 提取Json数组的数据怎么办.
 https://blog.csdn.net/qq_36502272/article/details/88529412
